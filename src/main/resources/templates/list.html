@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments"></div>
+		<title th:text="${title}"></title>
+	</head>
+	<body>
+		<h1 th:text="|Best ${title} of 2021|" class="text-center my-4"></h1 >
+		
+		<div class="card m-auto border-dark shadow-lg" style="width: 20rem" >
+		<ul th:if="${list.size() > 0}" class="list-group  text-center">
+			<li th:each="item : ${list}" th:text="${item}" class="list-group-item"></li>
+		</ul>
+		</div >
+		<p th:unless="${list.size() > 0}">No elements in list</p>
+		
+		<div th:replace="fragments :: scripts"></div>
+	</body>
+</html>
